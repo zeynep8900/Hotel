@@ -6,6 +6,7 @@ This project is a hotel management system developed using Node.js and Express.js
 * Node.js and npm
 * MongoDB
 * RabbitMQ
+* Docker
 # Installation
 * Node.js and npm
 * MongoDB
@@ -51,6 +52,20 @@ MongoDB connection URL and other configurations:
 # RabbitMQ Integration
 The project includes functionality for sending messages to RabbitMQ queues.
 The sendMessage function allows sending messages to a specified RabbitMQ queue.
+# Docker Setup
+# Node.js Dockerfile
+FROM node:latest
+WORKDIR /app
+COPY package.json .
+RUN npm install
+COPY . .
+EXPOSE 3000
+CMD ["node", "app.js"]
+- Build and run the Docker container:
+docker build -t hotel-management-system .
+docker run -p 3000:3000 hotel-management-system
+- DockerCompose
+
 
 
 
