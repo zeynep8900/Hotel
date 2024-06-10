@@ -2,6 +2,10 @@
  SE4458Final
 # Hotel Management System
 This project is a hotel management system developed using Node.js and Express.js. MongoDB is used as the database, and API authentication is implemented with JWT.
+# Requirements
+* Node.js and npm
+* MongoDB
+* RabbitMQ
 # Installation
 * Node.js and npm
 * MongoDB
@@ -44,6 +48,11 @@ MongoDB connection URL and other configurations:
  * Authorization: Bearer <token>
  * Body: { "hotelId": "12345", "userId": "67890", "date": "2024-10-10" }
  * Adds a new booking.
+# RabbitMQ Integration
+The project includes functionality for sending messages to RabbitMQ queues.
+The sendMessage function allows sending messages to a specified RabbitMQ queue.
+
+
 
 
 
