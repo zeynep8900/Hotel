@@ -65,7 +65,33 @@ CMD ["node", "app.js"]
 docker build -t hotel-management-system .
 docker run -p 3000:3000 hotel-management-system
 - DockerCompose
+version: '3'
+services:
+  backend:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongodb
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+  mongodb:
+    image: mongo:latest
+    volumes:
+      - mongodbdata:/data/db
+    ports:
+      - "27017:27017"
 
+volumes:
+  mongodbdata:
 
 
 
